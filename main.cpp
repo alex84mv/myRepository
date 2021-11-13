@@ -1,9 +1,15 @@
 #include <windows.h>
+#include <winuser.h>
 
+//int DisplayResourceNAMessageBox();
 /* This is where all the input to the window goes to */
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
 	switch(Message) {
-		
+		case WM_CREATE: {
+			MessageBox(0,"HELLO WORLD", "Message Box", MB_OK);
+
+			break;
+		}
 		/* Upon destruction, tell the main thread to stop */
 		case WM_DESTROY: {
 			PostQuitMessage(0);
@@ -64,3 +70,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	return msg.wParam;
 }
+
+/*int DisplayResourceNAMessageBox()
+{
+    MessageBox(hWnd, "name is: alex", "Msg title", MB_OK | MB_ICONQUESTION);
+}
+*/
